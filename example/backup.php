@@ -2,8 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require_once "setup.php";
-require_once "tistory.php";
+require_once "../setup.php";
+require_once "../tistory.php";
 require_once "simpledom.php";
 
 $tistory = new Tistory();

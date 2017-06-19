@@ -1,5 +1,5 @@
 <?php
-require("./setup.php");
+require("setup.php");
 $authorization_code = $_REQUEST['code'];
 $grant_type = 'authorization_code';
 $url = 'https://www.tistory.com/oauth/access_token/';
