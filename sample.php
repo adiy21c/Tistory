@@ -14,6 +14,11 @@ $tistory->redirect_url = $redirect_uri;
 
 $blogid = ""; // 본인 소유 블로그 아이디
 
+$upload_dir = "./tmp";
+if( !is_dir( $upload_dir ) ){
+        mkdir( $upload_dir, 0777, true );
+}
+
 getdogdrip($_GET['srl']);
 
 function getdogdrip($id){
