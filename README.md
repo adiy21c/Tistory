@@ -22,6 +22,9 @@ setup.php 를 수정.
 - sample.php 을 참조하면 주요 사용법을 알 수 있다.
 - http://www.tistory.com/guide/api/index 페이지를 참조하면 return message 를 볼 수 있다.
 
+- backup.php 를 이용하면 블로그를 백업 받을 수 있다. 
+  csv 형식으로 다운로드 되고, 워드프레스에 임포트 할 수 있다. 적당히 소스 보고 수정해서 쓰기 바람.
+
 ### Who do I talk to? ###
 
 * adiy21c@nate.com
