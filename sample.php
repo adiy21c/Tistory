@@ -64,7 +64,8 @@ function getdogdrip($id){
 		fclose($fp);
 
 		$ifs = filesize("./tmp/{$filename}");
-
+		
+		// 만약 파일사이즈가 0이거나 ( 다운로드 오류 ), 10메가 이상인 경우엔 티스토리에 업로드 하지 않고 그냥 원본 소스 그대로 사용.
 		if( $ifs > 0 && $ifs < 10485760 ) {
 			$result = $tistory->attach($blogid, "./tmp/{$filename}");
 			$string = str_replace($img, $result->tistory->replacer, $string);
