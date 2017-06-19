@@ -54,7 +54,7 @@ for( $i=1; $i <= $count; $i++ ){
 	
 	$doc = str_get_html($temp['content']);
 
-    $imageTags = $doc->find('img');
+    	$imageTags = $doc->find('img');
 	$temp['content'] = "";
 
 	foreach($imageTags as $element){
