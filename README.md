@@ -4,6 +4,8 @@ tistory의 아이디가 필요함.
 
 git clone https://bitbucket.org/adiy21c/tistory-api.git
 
+수정, 개량 시 저도 좀..... -_-
+
 ### What is this repository for? ###
 
 Tistory API
