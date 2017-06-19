@@ -2,7 +2,7 @@
 
 tistory의 아이디가 필요함.
 
-git clone https://adiy21c@bitbucket.org/adiy21c/tistory-api.git
+git clone https://bitbucket.org/adiy21c/tistory-api.git
 
 ### What is this repository for? ###
 
