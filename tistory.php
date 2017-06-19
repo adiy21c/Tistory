@@ -30,7 +30,7 @@ class Tistory {
 		curl_setopt($curl_handle, CURLOPT_URL, $fullurl);
 		curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 1000);
 		$headers = [
-		'Host: www.tistory.com',
+		'Host: '.$url,
 		'Connection: keep-alive',
 		'Cache-Control: max-age=0',
 		'Upgrade-Insecure-Requests: 1',
