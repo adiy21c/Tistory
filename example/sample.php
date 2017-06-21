@@ -48,16 +48,7 @@ function getdogdrip($id)
         $fp = fopen("./tmp/{$filename}", 'wb');
         curl_setopt($ch, CURLOPT_FILE, $fp);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        $headers = [
-            'Connection: keep-alive',
-            'Cache-Control: max-age=0',
-            'Upgrade-Insecure-Requests: 1',
-            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
-            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Encoding: deflate, sdch, br',
-            'Accept-Language: ko,en;q=0.8,en-US;q=0.6',
-        ];
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, \Setting\HEADERS);
         curl_exec($ch);
         curl_close($ch);
         fclose($fp);
