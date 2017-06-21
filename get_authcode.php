@@ -1,6 +1,5 @@
 <?php
 include_once('tistory.php');
-include_once('setup.php');
 
 $tistory = new Tistory\Api("", REDIRECT_URI, "", CLIENT_ID, CLIENT_SECRET);
 echo $tistory->get_authcode();
