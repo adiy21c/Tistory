@@ -9,6 +9,7 @@ require_once "simpledom.php";
 $blogid = "script-dev"; // 본인 소유 블로그 아이디
 $tistory = new Tistory($access_token, $redirect_uri, $blogid, $client_id, $client_secret);
 
+/* 카테고리 리스트를 보기 위한 부분. */
 $categoryr = json_decode( $tistory->getCategory() );
 var_dump($categoryr);
 $category = array();

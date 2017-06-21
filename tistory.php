@@ -90,7 +90,7 @@ class Tistory {
 		echo "<script>location.href='https://www.tistory.com/oauth/authorize/?client_id=".$this->client_id."&redirect_uri=".$this->redirect_url."&response_type=".$this->response_type."';</script>";
 	}
 
-	public function post_write($title, $content, $tag, $category, $output="json"){
+	public function post_write($title, $content, $tag, $category){
 		if( $this->access_token == "" ) return false;
 		$url = "https://www.tistory.com/apis/post/write";
 		$param = "access_token=".$this->access_token;
@@ -98,7 +98,7 @@ class Tistory {
 		$param .= "&title=".urlencode($title);
 		$param .= "&content=".urlencode($content);
 		$param .= "&category=".$category;
-		$param .= "&output=".$output;
+		$param .= "&output=json";
 		$param .= "&visibility=3&tag=".urlencode($tag);
 
 		return $this->request_post($url, $param);
