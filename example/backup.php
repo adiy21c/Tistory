@@ -16,8 +16,6 @@ foreach($categoryr->tistory->item->categories as $key=>$val){
 	$category[$val->id] = $val->name;
 }
 
-var_dump($category);
-die();
 $list = array();
 $count = 1000; // 백업할 블로그의 가장 큰 id값.
 for( $i=1; $i <= $count; $i++ ){
