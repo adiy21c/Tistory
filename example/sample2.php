@@ -1,4 +1,7 @@
 <?php
+/*
+post로 넘겨받은 제목과 본문을 블로그에 작성
+*/
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
 require_once "../setup.php";
