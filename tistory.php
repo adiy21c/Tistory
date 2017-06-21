@@ -48,7 +48,7 @@ class Api {
             'Accept-Encoding: deflate, sdch, br',
             'Accept-Language: ko,en;q=0.8,en-US;q=0.6',
         ];
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, $headers);
+        //curl_setopt($curl_handle, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($curl_handle);
         curl_close($curl_handle);
         $result = $this->unicode_decode($result);
@@ -193,7 +193,7 @@ class Api {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $finfo = finfo_file($finfo, $fileName);
 
-        $cFile = new CURLFile($fileName, $finfo, basename($fileName));
+        $cFile = new \CURLFile($fileName, $finfo, basename($fileName));
         $data = array( "uploadedfile" => $cFile, "access_token" => $this->access_token, "blogName" => $this->blogName, "output" => "json");
 
         $cURL = curl_init(API_URL . "post/attach");
@@ -211,7 +211,6 @@ class Api {
 
         $response = curl_exec($cURL);
         $result = json_decode($this->unicode_decode($response));
-        var_dump($result);
         curl_close($cURL);
 
         return $result;

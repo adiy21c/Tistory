@@ -3,8 +3,8 @@
 특정 사이트의 제목, 본문을 파싱 하는 샘플
 */
 
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 require_once '../tistory.php';
 require_once "simpledom.php";
 
@@ -69,7 +69,6 @@ function getdogdrip($id)
         // 만약 파일사이즈가 0이거나 ( 다운로드 오류 ), 10메가 이상인 경우엔 티스토리에 업로드 하지 않고 그냥 원본 소스 그대로 사용.
         if( $ifs > 0 && $ifs < 10485760 ) {
             $result = $tistory->attach("./tmp/{$filename}");
-            var_dump($result);
             $string = str_replace($img, $result->tistory->replacer, $string);
         }
     }
@@ -81,9 +80,8 @@ function getdogdrip($id)
     removeTempfile();
 
     if( $string != "" ){
-        echo $string;
         $result = $tistory->post_write( $title, $string, $title, ""); // 제목, 본문, 태그, 카테고리id
-        echo $result;
+        var_dump(json_decode($result));
         echo "<span>posting complete.</span>";
     } else {
         echo "<span>posting error.</span>";
