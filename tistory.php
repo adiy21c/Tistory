@@ -1,5 +1,7 @@
 <?php
 namespace Tistory;
+require_once "setup.php";
+
 define('API_URL', 'https://www.tistory.com/apis/');
 
 class Api {
@@ -36,7 +38,17 @@ class Api {
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 3000);
         curl_setopt($curl_handle, CURLOPT_POSTFIELDS, $param);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, \Setting\HEADERS);
+        $headers = [
+            'Host: '.$url,
+            'Connection: keep-alive',
+            'Cache-Control: max-age=0',
+            'Upgrade-Insecure-Requests: 1',
+            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
+            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Encoding: deflate, sdch, br',
+            'Accept-Language: ko,en;q=0.8,en-US;q=0.6',
+        ];
+        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, $headers);
         $result = curl_exec($curl_handle);
         curl_close($curl_handle);
         $result = $this->unicode_decode($result);
@@ -55,7 +67,17 @@ class Api {
 
         curl_setopt($curl_handle, CURLOPT_URL, $fullurl);
         curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 1000);
-        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, \Setting\HEADERS);
+        $headers = [
+            'Host: '.$url,
+            'Connection: keep-alive',
+            'Cache-Control: max-age=0',
+            'Upgrade-Insecure-Requests: 1',
+            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
+            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Encoding: deflate, sdch, br',
+            'Accept-Language: ko,en;q=0.8,en-US;q=0.6',
+        ];
+        curl_setopt($curl_handle, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($curl_handle);
         curl_close($curl_handle);

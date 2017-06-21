@@ -2,10 +2,11 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+require_once "../tistory.php";
 require_once "simpledom.php";
 
 $blogid = "script-dev"; // 본인 소유 블로그 아이디
-$tistory = new \Tistory\Api(\Setting\ACCESS_TOKEN, \Setting\REDIRECT_URI, $blogid, \Setting\CLIENT_ID, \Setting\CLIENT_SECRET);
+$tistory = new Tistory\Api(ACCESS_TOKEN, REDIRECT_URI, $blogid, CLIENT_ID, CLIENT_SECRET);
 
 /* 카테고리 리스트를 보기 위한 부분. */
 $categoryr = json_decode( $tistory->getCategory() );

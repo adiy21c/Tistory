@@ -4,10 +4,11 @@ post로 넘겨받은 제목과 본문을 블로그에 작성
 */
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
+require_once "../tistory.php";
 require_once "simpledom.php";
 
 $blogid = "script-dev"; // 본인 소유 블로그 아이디
-$tistory = new \Tistory\Api(\Setting\ACCESS_TOKEN, \Setting\REDIRECT_URI, $blogid, \Setting\CLIENT_ID, \Setting\CLIENT_SECRET);
+$tistory = new Tistory\Api(ACCESS_TOKEN, REDIRECT_URI, $blogid, CLIENT_ID, CLIENT_SECRET);
 
 $upload_dir = "./tmp";
 if( !is_dir( $upload_dir ) ){
@@ -38,7 +39,17 @@ function write()
     	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     	curl_setopt($ch, CURLOPT_POSTREDIR, 3);
     	curl_setopt($ch, CURLOPT_HEADER, 0);
-    	curl_setopt($ch, CURLOPT_HTTPHEADER, \Setting\HEADERS);
+        $headers = [
+            'Connection: keep-alive',
+            'Cache-Control: max-age=0',
+            'Upgrade-Insecure-Requests: 1',
+            'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.110 Safari/537.36',
+            'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Encoding: deflate, sdch, br',
+            'Accept-Language: ko,en;q=0.8,en-US;q=0.6',
+            //'Referer: '. $_POST['referer']
+        ];
+    	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     	curl_exec($ch);
     	curl_close($ch);
     	fclose($fp);
