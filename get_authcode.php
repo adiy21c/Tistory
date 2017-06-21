@@ -3,7 +3,7 @@ require_once "setup.php";
 require_once "tistory.php";
 
 $tistory = new Tistory("", $redirect_uri, "", $client_id, $client_secret);
-echo $tistory->get_authcode();
+$tistory->get_authcode();
 
 /**********************************************************************************
 이 파일에 브라우저로 엑세스 하면 access_token 발급 페이지로 이동.
