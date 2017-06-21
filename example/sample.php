@@ -1,4 +1,8 @@
 <?php
+/*
+특정 사이트의 제목, 본문을 파싱 하는 샘플
+*/
+
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
 require_once "../setup.php";
