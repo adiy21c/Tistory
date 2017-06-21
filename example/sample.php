@@ -1,18 +1,12 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
-
 require_once "../setup.php";
 require_once "../tistory.php";
 require_once "simpledom.php";
 
-$tistory = new Tistory();
-$tistory->access_token = $access_token;
-$tistory->client_id = $client_id;
-$tistory->client_secret = $client_secret;
-$tistory->redirect_url = $redirect_uri;
-
-$blogid = ""; // 본인 소유 블로그 아이디
+$blogid = "script-dev"; // 본인 소유 블로그 아이디
+$tistory = new Tistory($access_token, $redirect_uri, $blogid, $client_id, $client_secret);
 
 $upload_dir = "./tmp";
 if( !is_dir( $upload_dir ) ){
@@ -67,7 +61,8 @@ function getdogdrip($id){
 		
 		// 만약 파일사이즈가 0이거나 ( 다운로드 오류 ), 10메가 이상인 경우엔 티스토리에 업로드 하지 않고 그냥 원본 소스 그대로 사용.
 		if( $ifs > 0 && $ifs < 10485760 ) {
-			$result = $tistory->attach($blogid, "./tmp/{$filename}");
+			$result = $tistory->attach("./tmp/{$filename}");
+			var_dump($result);
 			$string = str_replace($img, $result->tistory->replacer, $string);
 		}
 	}
@@ -79,7 +74,8 @@ function getdogdrip($id){
 	removeTempfile();
 	
 	if( $string != "" ){
-		$tistory->post_write( $blogid, $title, $string, $title, ""); // 블로그명, 제목, 본문, 태그, 카테고리id
+		echo $string;
+		$result = $tistory->post_write( $title, $string, $title, ""); // 제목, 본문, 태그, 카테고리id
 		echo "<span>posting complete.</span>";
 	} else {
 		echo "<span>posting error.</span>";

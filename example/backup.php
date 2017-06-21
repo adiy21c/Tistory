@@ -6,23 +6,22 @@ require_once "../setup.php";
 require_once "../tistory.php";
 require_once "simpledom.php";
 
-$tistory = new Tistory();
-$tistory->access_token = $access_token;
-$tistory->client_id = $client_id;
-$tistory->client_secret = $clinet_secret;
-$tistory->redirect_url = $redirect_uri;
+$blogid = "script-dev"; // 본인 소유 블로그 아이디
+$tistory = new Tistory($access_token, $redirect_uri, $blogid, $client_id, $client_secret);
 
-$blogid = "";
-
-$categoryr = json_decode( $tistory->getCategory($blogid) );
+$categoryr = json_decode( $tistory->getCategory() );
+var_dump($categoryr);
 $category = array();
 foreach($categoryr->tistory->item->categories as $key=>$val){
 	$category[$val->id] = $val->name;
 }
+
+var_dump($category);
+die();
 $list = array();
 $count = 1000; // 백업할 블로그의 가장 큰 id값.
 for( $i=1; $i <= $count; $i++ ){
-	$article = json_decode($tistory->post_get($blogid, $i));
+	$article = json_decode($tistory->post_get($i));
 	if( $article == NULL ) continue;
 	if( $article->tistory->status != "200" ) continue;
 	$temp = array();
