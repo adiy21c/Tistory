@@ -74,7 +74,6 @@ function getdogdrip($id){
 	removeTempfile();
 	
 	if( $string != "" ){
-		echo $string;
 		$result = $tistory->post_write( $title, $string, $title, ""); // 제목, 본문, 태그, 카테고리id
 		echo $result;
 		echo "<span>posting complete.</span>";
