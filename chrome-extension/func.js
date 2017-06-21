@@ -10,7 +10,7 @@ $(document).ready(function(){
 	$(document).on("click", "#submitdiv textarea", function(){
 		event_fire("content");
 	});
-	$(document).on("click", "#submitdiv #senddata2", function(){
+	$(document).on("click", "#submitdiv #senddata", function(){
 		senddata('write');
 	});
 });
@@ -21,7 +21,7 @@ function makeMenu(){
 	var elname = "";
 	var elname2 = "";
 
-	$("body").append("<div id='submitdiv'><span id='hidesubmitdiv'>close</span><input type='text' style='width:198px; font-size:1em; padding:0; margin:0;'  id='titlename' /><input type='text' id='title' style='width:198px; font-size:1em; padding:0; margin:0;' value='"+document.title+"'><br><input type='text' id='elname' value='' style='width:198px; font-size:1em; padding:0; margin:0;' /></br><textarea style='width:196px;height:300px;margin:0; padding:0; font-size:1em;'></textarea><br><span id='senddata' style='width:85px;display:inline-block;margin:0 auto;border:1px solid black;padding:5px;text-align:center;font-size:1.4em;'>bestco</span><span id='senddata2' style='width:85px;display:inline-block;margin:0 auto;border:1px solid black;padding:5px;text-align:center;font-size:1.4em;'>needon</span></div>");
+	$("body").append("<div id='submitdiv'><span id='hidesubmitdiv'>close</span><input type='text' style='width:198px; font-size:1em; padding:0; margin:0;'  id='titlename' /><input type='text' id='title' style='width:198px; font-size:1em; padding:0; margin:0;' value='"+document.title+"'><br><input type='text' id='elname' value='' style='width:198px; font-size:1em; padding:0; margin:0;' /></br><textarea style='width:196px;height:300px;margin:0; padding:0; font-size:1em;'></textarea><br><span id='senddata' style='width:85px;display:inline-block;margin:0 auto;border:1px solid black;padding:5px;text-align:center;font-size:1.4em;'>post</span></div>");
 	$("#submitdiv").css("width", "200px").css("background-color", "#fff").css("position", "fixed").css("left", "0").css("bottom", "0").css("border", "1px solid #000").css("padding","10px").css("z-index", "9999");
 
 	$("body").on("click", "#hidesubmitdiv", function(){
