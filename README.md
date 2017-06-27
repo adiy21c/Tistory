@@ -2,7 +2,8 @@
 php가 필요함.
 tistory의 아이디가 필요함.
 
-git clone https://github.com/adiy21c/TistoryAPI.git
+git clone https://github.com/adiy21c/Tistory.git
+
 수정, 개량을 한 경우 저도 좀....-_-
 
 ### What is this repository for? ###
