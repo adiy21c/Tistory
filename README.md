@@ -1,11 +1,4 @@
 # README #
-
-tistory의 아이디가 필요함.
-
-git clone https://bitbucket.org/adiy21c/tistory-api.git
-
-수정, 개량 시 저도 좀..... -_-
-
 # TistoryAPI
 php가 필요함.
 tistory의 아이디가 필요함.
