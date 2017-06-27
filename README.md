@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README #
 
 tistory의 아이디가 필요함.
@@ -6,7 +5,7 @@ tistory의 아이디가 필요함.
 git clone https://bitbucket.org/adiy21c/tistory-api.git
 
 수정, 개량 시 저도 좀..... -_-
-=======
+
 # TistoryAPI
 php가 필요함.
 tistory의 아이디가 필요함.
@@ -14,7 +13,6 @@ tistory의 아이디가 필요함.
 git clone https://github.com/adiy21c/Tistory.git
 
 수정, 개량을 한 경우 저도 좀....-_-
->>>>>>> cc34f8baa134df020ae819918295325d05d19357
 
 ### What is this repository for? ###
 
