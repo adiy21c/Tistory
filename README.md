@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README #
 
 tistory의 아이디가 필요함.
@@ -5,6 +6,15 @@ tistory의 아이디가 필요함.
 git clone https://bitbucket.org/adiy21c/tistory-api.git
 
 수정, 개량 시 저도 좀..... -_-
+=======
+# TistoryAPI
+php가 필요함.
+tistory의 아이디가 필요함.
+
+git clone https://github.com/adiy21c/Tistory.git
+
+수정, 개량을 한 경우 저도 좀....-_-
+>>>>>>> cc34f8baa134df020ae819918295325d05d19357
 
 ### What is this repository for? ###
 
@@ -28,6 +38,7 @@ setup.php 를 수정.
 
 - backup.php 를 이용하면 블로그를 백업 받을 수 있다. 
   csv 형식으로 다운로드 되고, 워드프레스에 임포트 할 수 있다. 적당히 소스 보고 수정해서 쓰기 바람.
+- 참고로 API를 등록해두면 티스토리 접근제한이 걸려있을 때에도 백업이 가능하다.
 
 ### Who do I talk to? ###
 
