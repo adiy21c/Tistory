@@ -133,7 +133,7 @@ class Api {
     public function post_modify($postId, $category)
     {
         if( $this->access_token == "" ) return false;
-        $article = json_decode($this->post_get($this->blogName, $postId));
+        $article = json_decode($this->post_get($postId));
 
         $url = API_URL . "post/modify";
         $param = "access_token=".$this->access_token;
