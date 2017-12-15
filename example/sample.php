@@ -13,13 +13,12 @@ define('DOGDRIP_URL', 'http://www.dogdrip.net/');
 
 $blogid = "script-dev"; // 본인 소유 블로그 아이디
 $tistory = new Tistory\Api(ACCESS_TOKEN, REDIRECT_URI, $blogid, CLIENT_ID, CLIENT_SECRET);
-
 $upload_dir = "./tmp";
 if( !is_dir( $upload_dir ) ){
 	mkdir( $upload_dir, 0777, true );
 }
 
-getdogdrip($_GET['srl']);
+getdogdrip("148117399");
 
 function getdogdrip($id)
 {
@@ -34,9 +33,9 @@ function getdogdrip($id)
 		// 여기서 이제 업로드 하고 문자열 대체 시켜주고.
 		$url = $img->src;
 
-		if( is_null($img->attr['class']) ){
+		if( isset($img->attr['class']) ){
 			$url = $img->src;
-		} else if( $img->attr['lazy']) {
+		} else if( isset($img->attr['lazy'])) {
 			$url = $img->attr['data-original'];
 		}
 
